@@ -1,0 +1,21 @@
+name: shredder
+
+services:
+  postgres:
+    env_file:
+      - .env
+    image: postgres:16-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "shredder" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    restart: always
+    ports:
+      - 5432:5432
+
+volumes:
+  pgdata:

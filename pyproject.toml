@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "shredder"
+version = "0.1.0"
+description = "Reduce the size of a database"
+authors = ["acandela260 <20376875+andrew-candela@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+SQLAlchemy = { version = "^2.0.29", extras = ["asyncio"] }
+psycopg2 = "^2.9.9"
+
+[tool.poetry.group.dev.dependencies]
+alembic = "^1.13.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
